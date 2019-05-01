@@ -375,7 +375,7 @@ lm1.fit(X_train, y_train)
 
 mpredictions = math_prediction(lm1, X_test)
 mpredictions = math_prediction(lm1, X1) [int(sys.argv[1])]
-#print(mpredictions)
+print(mpredictions)
 
 '''
 from sklearn import metrics  
@@ -401,7 +401,7 @@ lm2.fit(X_train, y_train)
 
 cpredictions = csci_prediction(lm2, X_test)
 cpredictions = csci_prediction(lm2, X2) [int(sys.argv[1])]
-#print(cpredictions)
+print(cpredictions)
 
 '''
 from sklearn import metrics  
@@ -425,7 +425,7 @@ lm3.fit(X_train, y_train)
 
 spredictions = se_prediction(lm3, X_test)
 spredictions = se_prediction(lm3, X3) [int(sys.argv[1])]
-#print(spredictions)
+print(spredictions)
 
 '''
 from sklearn import metrics  
@@ -451,7 +451,7 @@ lm4.fit(X_train, y_train)
 
 opredictions = other_prediction(lm4, X_test)
 opredictions = other_prediction(lm4, X4) [int(sys.argv[1])]
-#print(opredictions)
+print(opredictions)
 
 '''
 from sklearn import metrics  
