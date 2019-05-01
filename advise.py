@@ -5,6 +5,7 @@ import pandas as pd
 import numpy as np 
 import matplotlib.pyplot as plt 
 import seaborn as sns 
+import sys
 
 math_courses = ['MATH070', 'MATH072', 'MATH112', 'MATH113', 'MATH115', 'MATH211', 'MATH221', 'MATH222', 'MATH271', 'MATH304', 'MATH312', 'MATH320']
 se_courses = ['SE  101', 'SE  210', 'SE  211', 'SE  221', 'SE  231', 'SE  240', 'SE  245', 'SE  276', 'SE  277', 'SE  340', 'SE  341', 'SE  345', 
@@ -241,7 +242,7 @@ def process_math (student_data):
     '''
     student_data['MathTaken'] = student_data.apply(count_math_classes, axis=1)
     student_data['MathGPA'] = student_data.apply(calc_math_gpa, axis=1)
-    print(student_data['MathGPA'])
+    #print(student_data['MathGPA'])
     return student_data
 
 def process_se(student_data):
@@ -373,10 +374,16 @@ lm1.fit(X_train, y_train)
 
 
 mpredictions = math_prediction(lm1, X_test)
-#mpredictions = math_prediction(lm1, X1)[0]
+mpredictions = math_prediction(lm1, X1) [int(sys.argv[1])]
 #print(mpredictions)
 
-
+'''
+from sklearn import metrics  
+print('Math Metrics:')
+print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, mpredictions))  
+print('Mean Squared Error:', metrics.mean_squared_error(y_test, mpredictions))  
+print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, mpredictions))) 
+'''
 
 
 
@@ -393,8 +400,16 @@ lm2 = LinearRegression()
 lm2.fit(X_train, y_train)
 
 cpredictions = csci_prediction(lm2, X_test)
-#cpredictions = csci_prediction(lm2, X2)[0]
+cpredictions = csci_prediction(lm2, X2) [int(sys.argv[1])]
 #print(cpredictions)
+
+'''
+from sklearn import metrics  
+print('CSCI Metrics:')
+print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, cpredictions))  
+print('Mean Squared Error:', metrics.mean_squared_error(y_test, cpredictions))  
+print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, cpredictions))) 
+'''
 
 '''
 SE Model
@@ -409,9 +424,16 @@ lm3 = LinearRegression()
 lm3.fit(X_train, y_train)
 
 spredictions = se_prediction(lm3, X_test)
-#spredictions = se_prediction(lm3, X3)[0]
+spredictions = se_prediction(lm3, X3) [int(sys.argv[1])]
 #print(spredictions)
 
+'''
+from sklearn import metrics  
+print('SE Metrics:')
+print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, spredictions))  
+print('Mean Squared Error:', metrics.mean_squared_error(y_test, spredictions))  
+print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, spredictions))) 
+'''
 
 '''
 Other Model
@@ -428,24 +450,15 @@ lm4.fit(X_train, y_train)
 
 
 opredictions = other_prediction(lm4, X_test)
-#0predictions = other_prediction(lm4, X4)[0]
+opredictions = other_prediction(lm4, X4) [int(sys.argv[1])]
 #print(opredictions)
 
 '''
-value_to_predict = int(input("enter the index for the kid to evaluate:"))
-
-o2predictions = other_prediction(lm4, X4)[value_to_predict]
-print(o2predictions)
-
-
-df = pd.DataFrame({'Actual': y_test, 'Predicted': mpredictions})  
-print(df)
-
-
 from sklearn import metrics  
-print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, mpredictions))  
-print('Mean Squared Error:', metrics.mean_squared_error(y_test, mpredictions))  
-print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, mpredictions))) 
+print('Other Metrics:')
+print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, opredictions))  
+print('Mean Squared Error:', metrics.mean_squared_error(y_test, opredictions))  
+print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, opredictions))) 
 '''
 
 
