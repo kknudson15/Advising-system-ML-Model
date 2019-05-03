@@ -374,7 +374,7 @@ lm1.fit(X_train, y_train)
 
 
 mpredictions = math_prediction(lm1, X_test)
-mpredictions = math_prediction(lm1, X1) [int(sys.argv[1])]
+mpredictions = round(math_prediction(lm1, X1) [int(sys.argv[1])],2)
 print(mpredictions)
 
 '''
@@ -400,7 +400,7 @@ lm2 = LinearRegression()
 lm2.fit(X_train, y_train)
 
 cpredictions = csci_prediction(lm2, X_test)
-cpredictions = csci_prediction(lm2, X2) [int(sys.argv[1])]
+cpredictions = round(csci_prediction(lm2, X2) [int(sys.argv[1])],2)
 print(cpredictions)
 
 '''
@@ -424,7 +424,7 @@ lm3 = LinearRegression()
 lm3.fit(X_train, y_train)
 
 spredictions = se_prediction(lm3, X_test)
-spredictions = se_prediction(lm3, X3) [int(sys.argv[1])]
+spredictions = round(se_prediction(lm3, X3) [int(sys.argv[1])],2)
 print(spredictions)
 
 '''
@@ -450,7 +450,7 @@ lm4.fit(X_train, y_train)
 
 
 opredictions = other_prediction(lm4, X_test)
-opredictions = other_prediction(lm4, X4) [int(sys.argv[1])]
+opredictions = round(other_prediction(lm4, X4) [int(sys.argv[1])],2)
 print(opredictions)
 
 '''
